@@ -21,19 +21,22 @@ const Head: React.FC<HeadProps> = ({
   const faviconUrl = 'https://cms.botto.com/assets/74c67177-f8b1-40c8-af05-9af5501f58c7';
 
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags>
       {/* Basic metadata */}
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}
+      <meta property="og:site_name" content={siteName} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content={siteName} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -42,17 +45,19 @@ const Head: React.FC<HeadProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      <meta name="twitter:image:alt" content={title} />
 
       {/* Favicon */}
-      <link rel="icon" href={faviconUrl} />
+      <link rel="icon" type="image/png" href={faviconUrl} />
       <link rel="apple-touch-icon" href={faviconUrl} />
 
       {/* Additional SEO */}
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      <meta name="theme-color" content="#171717" />
       <meta name="keywords" content="Botto, DAO, NFT, SuperRare, RARE, Art, Curation, Web3, Blockchain" />
       <meta name="author" content="Botto DAO" />
-      <meta name="theme-color" content="#171717" />
 
+      {/* Additional tags */}
       {children}
     </Helmet>
   );

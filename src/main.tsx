@@ -9,9 +9,11 @@ import './index.css';
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Failed to find the root element');
 
+const helmetContext = {};
+
 createRoot(rootElement).render(
   <StrictMode>
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <ThirdwebProvider 
         activeChain="ethereum"
         clientId={import.meta.env.VITE_THIRDWEB_CLIENT_ID || ""}
